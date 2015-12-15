@@ -1,0 +1,27 @@
+{
+  "name": "uramon-article-manager",
+  "website": "https://uramon-article-manager.herokuapp.com",
+  "repository": "https://github.com/bm-sms/uramon-article-manager",
+  "env":{
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "DIGEST_AUTH_SECRET_KEY": {
+      "generator": "secret"
+    },
+    "DIGEST_AUTH_USERNAME": {
+      "required": true
+    },
+    "DIGEST_AUTH_PASSWORD": {
+      "required": true
+    }
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "papertrail:choklad",
+    "newrelic:wayne"
+  ],
+  "scripts": {
+    "postdeploy": "bundle exec rake db:schema:load && bundle exec rake db:seed:development"
+  }
+}
