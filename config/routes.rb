@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: redirect('/admin')
 
   namespace :api do
-    resources :sites, only: [], param: :fqdn do
+    resources :sites, only: [] do
       resources :articles, only: %i(index show)
       resources :categories, only: %i(index show), param: :slug
     end
