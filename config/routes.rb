@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :sites, only: [], param: :fqdn do
-      resources :articles, only: :index
+      resources :articles, only: %i(index show)
       resources :categories, only: :index
     end
   end
