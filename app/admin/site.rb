@@ -1,3 +1,3 @@
 ActiveAdmin.register Site do
-  permit_params :name, :fqdn
+  permit_params :name
 end

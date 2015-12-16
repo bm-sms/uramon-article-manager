@@ -10,7 +10,7 @@ class Api::ArticlesController < ApplicationController
   private
 
   def find_articles
-    articles = Site.find_by!(fqdn: params[:site_fqdn]).articles.published
+    articles = Site.find(params[:site_id]).articles.published
 
     articles = articles.eager_load(:category).where(:categories => {slug: params[:category_slug]}) if params[:category_slug]
 
